@@ -11,24 +11,63 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    public TextView questionText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        questionText = findViewById(R.id.questionText);
         setContentView(R.layout.activity_main);
         addQuestions();
         addpod();
+        buttonY = findViewById(R.id.button1);
+        buttonY.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        rightOrWrong = true;
+                    }
+                }
+        );
+        buttonN = findViewById(R.id.button2);
+        buttonN.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        rightOrWrong = false;
+                    }
+                }
+        );
+        buttonNext = findViewById(R.id.button4);
+        buttonNext.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(rightOrWrong){
+                            counterOfRightAnswers += 1;
+                        }
+                        question += 1;
+                        if(question > 3){
+                            questionText.setText("Koniec quizu, dobre odpowiedzi: "+counterOfRightAnswers);
+                        }
+                        else{
+                            questionText.setText(questions.get(question));
+                        }
+                    }
+                }
+        );
+        buttonPodpowiedz= findViewById(R.id.button3);
     }
 
     ArrayList<String> questions = new ArrayList<String>();
     ArrayList<String> podpowiedzi = new ArrayList<String>();
     public int question = 0;
-    public TextView questionText = findViewById(R.id.questionText);
 
     public int counterOfRightAnswers = 0;
     public boolean rightOrWrong = false;
-    public Button podpo;
-    //podpo = findViewById(R.id.button4);
+    private Button buttonY;
+    private Button buttonN;
+    private Button buttonNext;
+    private Button buttonPodpowiedz;
 
     public void addQuestions(){
         questions.add("Is Calcharo the leader of Ghost Hounds");
@@ -41,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         questions.add("There was 3 names");
     }
 
-    public void yes(View view) {
+    /*public void yes(View view) {
         rightOrWrong = true;
     }
 
@@ -50,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void next(View view) {
-        if(rightOrWrong == true){
+        if(rightOrWrong){
             counterOfRightAnswers += 1;
         }
         question += 1;
@@ -60,5 +99,5 @@ public class MainActivity extends AppCompatActivity {
         else{
             questionText.setText(questions.get(question));
         }
-    }
+    }*/
 }
