@@ -1,4 +1,4 @@
-package com.example.myapplication;
+/*package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -99,5 +99,110 @@ public class MainActivity extends AppCompatActivity {
         else{
             questionText.setText(questions.get(question));
         }
-    }*/
+    }
+}*/
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+    private ArrayList<Question> questions = new ArrayList<>();
+    private TextView textView;
+    private Button buttonNext;
+    private Button buttonY;
+    private Button buttonNo;
+    private int questionCounter = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        createQuestions();
+        textView = findViewById(R.id.questionText);
+        createQuestionView(0);
+        buttonNext = findViewById(R.id.button4);
+        buttonNext.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        questionCounter++;
+                        if(questionCounter == questions.size()){
+                           int points = countPoints();
+                           textView.setText("Everything done, your score: "+Integer.toString(points)+" points");
+                            buttonNext.setVisibility(View.INVISIBLE);
+                            buttonY.setVisibility(View.INVISIBLE);
+                            buttonN.setVisibility(View.INVISIBLE);
+                        }
+                        else {
+                            createQuestionView(questionCounter);
+                        }
+
+                    }
+                }
+        );
+
+        buttonY = findViewById(R.id.buttonY);
+        buttonY.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chooseOption(true);
+                    }
+                }
+        );
+        buttonN = findViewById(R.id.buttonN);
+        buttonN.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        chooseOption(false);
+                    }
+                }
+        );
+    }
+    private int countPoints(){
+        int pointss = 0;
+        for (Question Question :questions) {
+            if(Question.isIsAnswerCorrect()){
+                pointss++;
+            }
+        }
+        return pointss;
+    }
+
+    private void chooseOption(boolean Answer){
+        Question Question = questions.get(questionCounter);
+        if(Question.isCorrectAnswer() == Answer){
+            questions.get(questionCounter).setIsAnswerCorrect();
+        }
+    }
+
+    private void createQuestionView(int i){
+        Question Question = questions.get(i);
+        textView.setText(Question.getContent());
+    }
+
+    private void createQuestion(){
+        questions.add(new Question
+        ("Is Calcharo the leader of Ghost Hounds?",
+                "Who else?" ,
+                true));
+        questions.add(new Question
+("Is Scar in Black Shores",
+                "What about Fractsidus?",
+                false
+                ));
+        questions.add(new Question
+ ("Is The first instance one of Rover's names",
+                "There was 3 names.",
+                true
+        ));
+    }
+
 }
