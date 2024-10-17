@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void createQuestion(){
         questions.add(new Question("Calcharo is the leader of?", "---", "Black Shores", "Ghost Hounds", "Fractsidus", "", 2 ));
-        questions.add(new Question("Calcharo is the leader of?", "---", "Black Shores", "Ghost Hounds", "Fractsidus", "", 2 ));
+        questions.add(new Question("Which are Rover's names?", "---", "Lord arbiter, Overseer, Astral modulator", "The first instance, Astral modulator, General of the midnight rangers", "Lord arbiter, The first instance, Astral modulator", "Overseer, The lord of darkness, Kitty cat", 2 ));
         questions.add(new Question("Calcharo is the leader of?", "---", "Black Shores", "Ghost Hounds", "Fractsidus", "", 2 ));
     }
 
