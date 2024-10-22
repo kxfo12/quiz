@@ -9,6 +9,12 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/img1" />
+    
     <TextView
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
