@@ -1,4 +1,4 @@
-package com.example.lj;
+package com.example.quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -119,16 +119,25 @@ public class MainActivity extends AppCompatActivity {
     private void createQuestionView(int i){
         Question Question = questions.get(i);
         textView.setText(Question.getContent());
+        //button1.setText(Question.a1);
+        //button2.setText(Question.a2);
+        //button3.setText(Question.a3);
+        //button4.setText(Question.a4);
     }
     private void createQuestionAndHintView(int i){
         Question Question = questions.get(i);
+        //button1.setText(Question.a1);
+        //button2.setText(Question.a2);
+        //button3.setText(Question.a3);
+        //button4.setText(Question.a4);
         textView.setText(Question.getContentAndHint());
     }
 
     private void createQuestion(){
         questions.add(new Question("Calcharo is the leader of?", "---", "Black Shores", "Ghost Hounds", "Fractsidus", "", 2 ));
         questions.add(new Question("Which are Rover's names?", "---", "Lord arbiter, Overseer, Astral modulator", "The first instance, Astral modulator, General of the midnight rangers", "Lord arbiter, The first instance, Astral modulator", "Overseer, The lord of darkness, Kitty cat", 2 ));
-        questions.add(new Question("Calcharo is the leader of?", "---", "Black Shores", "Ghost Hounds", "Fractsidus", "", 2 ));
+        questions.add(new Question("Who is the Changli's master?", "It was in her companion quest", "Baizhi", "Sentinel Jue", "Rover", "Xuanmio", 4 ));
+        questions.add(new Question("How Encore call Aalto?", "---", "father", "Super duper black shores master!", "Uncle", "Xuanmio", 4 ));
     }
 
 }
