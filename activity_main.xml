@@ -9,67 +9,67 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/img1" />
-    
-    <TextView
-        android:id="@+id/questionText"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_margin="8dp"
-        android:padding="16dp"
-        android:textColor="#C400F0"
-        android:text="tresc pytanie ...." />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="200dp"
+            android:layout_height="137dp"
+            android:layout_margin="8dp"
+            android:padding="16dp"
+            android:text="tresc pytanie ...."
+            android:textColor="#C400F0"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="143dp"
+            app:srcCompat="@drawable/calcharo" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/Answer1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:backgroundTint="#0000f0"
-            android:text="Yes" />
+            android:text="Black Shores"
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/Answer2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_margin="24dp"
             android:backgroundTint="#FF0000"
-            android:text="No" />
+            android:text="Ghost Hounds" />
 
         <Button
             android:id="@+id/Answer3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_margin="24dp"
-            android:backgroundTint="#FF0000"
-            android:text="No" />
+            android:backgroundTint="#A3D62C"
+            android:text="Fractsidus" />
 
         <Button
             android:id="@+id/Answer4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
-            android:backgroundTint="#FF0000"
-            android:text="No" />
+            android:backgroundTint="#168C97"
+            android:text="" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_200"
-        android:text="Hint" />
 
     <Button
         android:id="@+id/button6"
@@ -77,5 +77,12 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/teal_200"
         android:text="Next" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+        android:text="Hint" />
 
 </LinearLayout>
