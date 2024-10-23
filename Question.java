@@ -1,11 +1,12 @@
-package com.example.lj;
+package com.example.quiz;
+
 public class Question {
     private String content;
     private String hint;
-    private String a1;
-    private String a2;
-    private String a3;
-    private String a4;
+    public String a1;
+    public String a2;
+    public String a3;
+    public String a4;
     private int correctAnswer;
     private int isAnswerCorrect;
 
