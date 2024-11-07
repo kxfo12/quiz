@@ -1,5 +1,6 @@
 package com.example.pytania;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonHint;
     private int questionCounter = 0;
     private int points = 0;
+    private boolean checking = false;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,42 +47,46 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Question Question = questions.get(questionCounter);
-                        switch(Question.isCorrectAnswer()){
-                            case 1:
-                                if(button1.isChecked()){
-                                    points += 1;
-                                }
-                                break;
-                            case 2:
-                                if(button2.isChecked()){
-                                    points += 1;
-                                }
-                                break;
-                            case 3:
-                                if(button3.isChecked()){
-                                    points += 1;
-                                }
-                                break;
-                            case 4:
-                                if(button4.isChecked()){
-                                    points += 1;
-                                }
-                                break;
+                        if(checking){
+                            questionCounter++;
+                            if(questionCounter == questions.size()){
+                                textView.setText("Everything done, your score: "+Integer.toString(points)+" points");
+                                buttonNext.setVisibility(View.INVISIBLE);
+                                button1.setVisibility(View.INVISIBLE);
+                                button2.setVisibility(View.INVISIBLE);
+                                button3.setVisibility(View.INVISIBLE);
+                                button4.setVisibility(View.INVISIBLE);
+                                buttonHint.setVisibility(View.INVISIBLE);
+                            }
+                            else {
+                                createQuestionView(questionCounter);
+                            }
                         }
-                        questionCounter++;
-                        if(questionCounter == questions.size()){
-                            textView.setText("Everything done, your score: "+Integer.toString(points)+" points");
-                            buttonNext.setVisibility(View.INVISIBLE);
-                            button1.setVisibility(View.INVISIBLE);
-                            button2.setVisibility(View.INVISIBLE);
-                            button3.setVisibility(View.INVISIBLE);
-                            button4.setVisibility(View.INVISIBLE);
-                            buttonHint.setVisibility(View.INVISIBLE);
+                        else{
+                            switch(Question.isCorrectAnswer()){
+                                case 1:
+                                    if(button1.isChecked()){
+                                        points += 1;
+                                        button1.setBackgroundColor(00FF00); 
+                                    }
+                                    break;
+                                case 2:
+                                    if(button2.isChecked()){
+                                        points += 1;
+                                    }
+                                    break;
+                                case 3:
+                                    if(button3.isChecked()){
+                                        points += 1;
+                                    }
+                                    break;
+                                case 4:
+                                    if(button4.isChecked()){
+                                        points += 1;
+                                    }
+                                    break;
+                            }
                         }
-                        else {
-                            createQuestionView(questionCounter);
-                        }
-
                     }
                 }
         );
@@ -166,10 +172,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createQuestion(){
-        questions.add(new Question("Calcharo is the leader of?", "---", "Black Shores", "Ghost Hounds", "Fractsidus", "Anima Squad", 2 ));
-        questions.add(new Question("Which are Rover's names?", "Shorekeeper said all three", "Lord arbiter, Overseer, Astral modulator", "The first instance, Astral modulator, General of the midnight rangers", "Lord arbiter, The first instance, Astral modulator", "Overseer, The lord of darkness, Kitty cat", 3 ));
-        questions.add(new Question("Who is the Changli's master?", "It was in her companion quest", "Baizhi", "Sentinel Jue", "Rover", "Xuanmio", 4 ));
         questions.add(new Question("How Encore call Aalto?", "---", "My best friend", "Super duper black shores master!", "Uncle", "Father", 3 ));
+        questions.add(new Question("Calcharo is the leader of?", "---", "Black Shores", "Ghost Hounds", "Fractsidus", "Anima Squad", 2 ));
+        questions.add(new Question("Who is the Changli's master?", "It was in her companion quest", "Baizhi", "Sentinel Jue", "Rover", "Xuanmio", 4 ));
+        questions.add(new Question("Which are Rover's names?", "Shorekeeper said all three", "Lord arbiter, Overseer, Astral modulator", "The first instance, Astral modulator, General of the midnight rangers", "Lord arbiter, The first instance, Astral modulator", "Overseer, The lord of darkness, Kitty cat", 3 ));
     }
 
 }
