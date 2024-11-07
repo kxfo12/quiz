@@ -14,75 +14,100 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/calcharo" />
+
         <TextView
             android:id="@+id/questionText"
             android:layout_width="200dp"
-            android:layout_height="137dp"
+            android:layout_height="300dp"
             android:layout_margin="8dp"
             android:padding="16dp"
             android:text="tresc pytanie ...."
             android:textColor="#C400F0"
-            android:textSize="24sp" />
+            android:textSize="30sp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="200dp"
-            android:layout_height="143dp"
-            app:srcCompat="@drawable/calcharo" />
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/Answer1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:backgroundTint="#0000f0"
-            android:text="Black Shores"
-            android:textSize="12dp" />
+            android:gravity="center"
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/Answer2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:backgroundTint="#FF0000"
-            android:text="Ghost Hounds" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/Answer3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:backgroundTint="#A3D62C"
-            android:text="Fractsidus" />
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/Answer4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:backgroundTint="#168C97"
-            android:text="" />
-    </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/answer1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Black Shores"
+                        android:textColor="#0000FF"
+                        android:textSize="25dp" />
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/teal_200"
-        android:text="Next" />
+                    <RadioButton
+                        android:id="@+id/answer2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Ghost Hounds"
+                        android:textColor="#FF0000"
+                        android:textSize="25dp" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_200"
-        android:text="Hint" />
+                    <RadioButton
+                        android:id="@+id/answer3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Fractsidus"
+                        android:textColor="#00FF00"
+                        android:textSize="25dp" />
+
+                    <RadioButton
+                        android:id="@+id/answer4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Anima Squad"
+                        android:textColor="#00FFFF"
+                        android:textSize="25dp" />
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/teal_200"
+                    android:text="Next" />
+
+                <Button
+                    android:id="@+id/buttonHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/purple_200"
+                    android:text="Hint" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
