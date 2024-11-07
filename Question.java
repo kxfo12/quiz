@@ -1,4 +1,4 @@
-package com.example.quiz;
+package com.example.pytania;
 
 public class Question {
     private String content;
@@ -8,7 +8,7 @@ public class Question {
     public String a3;
     public String a4;
     private int correctAnswer;
-    private int isAnswerCorrect;
+    //private int isAnswerCorrect;
 
     public Question(String content, String hint, String a1, String a2, String a3, String a4, int correctAnswer) {
         this.content = content;
@@ -18,12 +18,12 @@ public class Question {
         this.a3 = a3;
         this.a4 = a4;
         this.correctAnswer = correctAnswer;
-        isAnswerCorrect = 0;
+        //isAnswerCorrect = 0;
     }
 
-    public void setIsAnswerCorrect() {
+    /*public void setIsAnswerCorrect() {
         this.isAnswerCorrect = correctAnswer;
-    }
+    }*/
 
     public String getContent() {
         return content;
@@ -41,7 +41,7 @@ public class Question {
         return correctAnswer;
     }
 
-    public int isIsAnswerCorrect() {
+    /*public int isIsAnswerCorrect() {
         return isAnswerCorrect;
-    }
+    }*/
 }
